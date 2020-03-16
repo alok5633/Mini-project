@@ -1,0 +1,89 @@
+<html>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+  <label for="domain">Choose the Domain:</label>
+  <select id="domain" name="domain">
+    <option value="webapp">WebApp</option>
+    <option value="ml">Machine Learning</option>
+    <option value="iot">IOT</option>
+    <option value="devops">Devops</option>
+  </select>
+   
+   <br>
+  <!--
+  <label for="difficulty">Choose the Difficulty:</label>
+  <select id="difficulty" name="difficulty">
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="Hard">Hard</option>
+    
+  </select>
+  
+  <br>
+  <br>
+  <br>
+  -->
+  Question:-
+  <input type="text" id="ques">
+  
+  <br>
+  <br>
+  <br>
+  
+  Options:- <br>
+  a> <input type="text" id="a">
+  <br>
+  b> <input type="text" id="b">
+  <br>
+  c> <input type="text" id="c">
+  <br>
+  d> <input type="text" id="d">
+  <br>
+  <br>
+  
+  Answer:- <br>
+  
+  <input type="text" id="ans">
+  
+  <br>
+  <br>
+  <input type="button" onclick="sub()">Submit</>
+  
+
+
+<script>
+
+  function sub(){
+  
+  var e = document.getElementById("domain");
+  var domain = e.options[e.selectedIndex].value;
+  console.log("wdasasd");
+  
+  var ques = document.getElementById("ques").value;
+  var a = document.getElementById("a").value;
+  var b = document.getElementById("b").value;
+  var c = document.getElementById("c").value;
+  var d = document.getElementById("d").value;
+  var ans = document.getElementById("ans").value;
+  
+    $.ajax({
+  type: 'POST',
+  data: JSON.stringify({domain:domain,ques:ques,a:a,b:b,c:c,d:d,ans:ans}),
+      contentType: 'application/json',
+              url: '/quiz',						
+              success: function(data) {
+                  console.log('success');
+                  console.log(JSON.stringify(data));
+              }
+          });
+  
+  }
+
+
+</script>
+
+</body>
+</html>

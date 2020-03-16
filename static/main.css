@@ -1,0 +1,28 @@
+.A{
+    background: url("background.jpg")
+    no-repeat center center fixed;
+    background-size: cover;
+  }
+
+.B{
+    background: url("welcome.jpg")
+    no-repeat center center fixed;
+    background-size: cover; 
+}
+
+div{
+    margin-top:25px;
+    margin-left: 25px;
+    padding:5px;
+}
+
+h2.a{
+    background-color: darkorchid;
+    text-align: center;
+}
+
+h2.b{
+    background-color: royalblue;
+    text-align: center;
+}
+
