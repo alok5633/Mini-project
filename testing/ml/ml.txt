@@ -1,0 +1,9 @@
+cnn
+rnn
+knn
+svm
+pytorch
+cloud ml
+wrestling
+pygame
+linear regression

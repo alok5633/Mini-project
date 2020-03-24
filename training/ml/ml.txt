@@ -1,0 +1,18 @@
+keras
+sklearn
+knn
+naive bayes
+tensorflow
+pytorch
+regression
+classification
+mnist
+pca
+auto encoding
+deep learning
+cnn
+ann
+rnn
+boltzmann
+autoencoders
+svm

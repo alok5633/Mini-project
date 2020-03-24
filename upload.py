@@ -19,6 +19,8 @@ app.config['MYSQL_DB']="quiz"
 mysql=MySQL(app)
  
 pos=['JJ','NN','NNP','NNS','NNPS']
+skills={}
+devops=[]
 @app.route('/',methods=['GET','POST'])  
 def index():  
     
@@ -74,6 +76,12 @@ def question_upload():
     cur.execute(s+"(set_no,ques,a,b,c,d,ans) values (%s,%s,%s,%s,%s,%s,%s)",(1,ques,a,b,c,d,ans))
     mysql.connection.commit()
     '''
+    cur = mysql.connection.cursor()
+    cur.execute("select skill from web")
+    data=cur.fetchall()
+    for row in data:
+        web.append(row[0])
+    mysql.connection.commit()
     resume=Resume()
     resume_string = resume.convert("resume.pdf")
         #Converting all the charachters in lower case
@@ -87,7 +95,8 @@ def question_upload():
     for words in pos_tag[0]:
         if words[1] in pos:
             w.append(words[0])
-    print(len(w))        
+    print(len(w))  
+    print(web)      
     
           
 if __name__ == '__main__':  
