@@ -1,9 +1,8 @@
-cnn
-rnn
-knn
-svm
-pytorch
-cloud ml
-wrestling
+jumping 
+dancing
+playing
+reading
 pygame
-linear regression
+python
+pytorch
+tensorflow

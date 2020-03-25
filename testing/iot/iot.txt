@@ -1,0 +1,67 @@
+Facial Recognition Door
+Smart Office System
+Liquid Level Monitor
+House monitoring using Arduino and Raspberry Pi
+Wearable LED with Intel Edison
+Wireless Biometric Lock Using Arduino With The IoT(Hindi & English)
+IOT Underground Cable Fault Detector Project IOT Air & Sound Pollution Monitoring System Energy Meter Monitoring Over
+ IOT IOT Based Person/Wheelchair Fall Detection
+ IOT Patient Health Monitoring Project
+ IOT Heart Attack Detection & Heart Rate Monitor
+ IOT Based Toll Booth Manager System
+ IOT Theft Detection Using Raspberry Pi
+2WD Vehicle Drone Air + Land Surveillance
+Public Property Violation and Anti Littering Drone
+Raspberry Pi based Android Controlled Surveillance Robot
+Farm Protector Drone for using Arduino
+
+Cisco (San Jose, CA)
+ARM IoT Security Company (Cambridge, Cambs)
+Huawei (Shenzhen, Guangdong)
+GE Digital (San Ramon, California)
+Bosch IoT Sensor Company (Farmington Hills, MI)
+SAP (Walldorf, Germany)
+Siemens IoT Analytics Company (Berlin and Munich, Germany)
+IBM (New York, U.S.)
+Fibaro, Wemo, and AEOtec Sensors and Actuators.
+Z-Wave, WiFi, and Bluetooth Protocols.
+Raspberry, Orange PI, CyberTAN, and Advantech Gateways.
+ESP32 and ESP8266 Micro-controllers and other Objective-Specific Hardware.
+LoRa and Z-Wave Alliances open-source protocols.
+For IoT, it provides the solutions of IoT Networking, IoT Gateways, IoT Operations Management, IoT Data Management, and IoT Security.
+Mbed OS, SoC Solutions, and Kigen SIM Solutions.
+
+soapui
+mocha jmeter
+routing
+switching
+vpn
+mqtt
+coap
+amqp
+http
+ssl
+dtls
+https
+nginx
+mosquitto
+load balancing
+raspberry pi
+raspberry
+arduino
+gpio
+usb
+i2c
+leds
+led
+fpga
+asics
+soc
+bluetooth
+lorawan
+microcontrollers
+arm
+arm cortex
+android
+ios
+cordova

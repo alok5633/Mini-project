@@ -1,0 +1,209 @@
+design for data
+automation
+ip
+ip networking
+hardware
+hardware interfacing
+mobile development
+spark
+elastic stack
+test automation
+unit test
+junit
+soapui
+mocha jmeter
+routing
+switching
+vpn
+mqtt
+coap
+amqp
+http
+ssl
+dtls
+https
+nginx
+mosquitto
+load balancing
+raspberry pi
+raspberry
+arduino
+gpio
+usb
+i2c
+leds
+led
+fpga
+asics
+soc
+bluetooth
+lorawan
+microcontrollers
+arm
+arm cortex
+android
+ios
+cordova
+meteor
+ble
+java
+cryptography
+authentication
+non-repudiation
+encryption
+ciphers
+public key
+infrastructure
+elliptical curve cryptography
+aes
+rsa
+ssl
+tls
+dtls
+vpn
+agile scrum
+embedded 
+software
+inter integrated circuit
+integrated circuit
+scala
+python
+security
+pcb
+mesh networks
+zigbee
+rfid technologies
+lora
+lpwan
+sigfox
+nbiot
+wireless connection
+gps
+global positioning system
+cyber
+cybersecurity
+autocad
+microelectromechanical systems
+mems
+wireless sensor modelling
+quality management
+modern networks
+wpa
+wep
+3g
+4g
+radio frequency distribution
+location
+pressure
+flow
+direction
+sound
+humidity
+light
+heat
+sensors
+encryption
+decryption
+vpn tunnels
+ipsec
+kerio control
+l2tp
+distributed networks
+public key
+private key
+
+
+cisco dev network
+Vates
+ScienceSoft (USA & Europe)
+Oxagile (New York, US)
+Style Lab IoT Software Company (San Francisco, CA)
+HQ Software Industrial IoT Company (USA & Europe)
+PTC (Boston, Massachusetts)
+Cisco (San Jose, CA)
+ARM IoT Security Company (Cambridge, Cambs)
+Huawei (Shenzhen, Guangdong)
+GE Digital (San Ramon, California)
+Bosch IoT Sensor Company (Farmington Hills, MI)
+SAP (Walldorf, Germany)
+Siemens IoT Analytics Company (Berlin and Munich, Germany)
+IBM (New York, U.S.)
+Fibaro, Wemo, and AEOtec Sensors and Actuators.
+Z-Wave, WiFi, and Bluetooth Protocols.
+Raspberry, Orange PI, CyberTAN, and Advantech Gateways.
+ESP32 and ESP8266 Micro-controllers and other Objective-Specific Hardware.
+LoRa and Z-Wave Alliances open-source protocols.
+For IoT, it provides the solutions of IoT Networking, IoT Gateways, IoT Operations Management, IoT Data Management, and IoT Security.
+Mbed OS, SoC Solutions, and Kigen SIM Solutions.
+Bosch provides the IoT Suite for connecting and managing devices, sensors, and gateways.
+For MindSphere, Siemens provides MindConnect Nano, MindConnect Edge Analytics Engineer, MindConnect IoT Extension Upgrade, and MindConnect Integration for Cloud.
+Very versatile, high-speed data manipulation engine and platform to integrate, govern, and analyze IoT data, on the edge or in the hub.
+It is a cloud-based service and is easy to use. It provides an integration option with Oracle and non-Oracle applications.
+Cisco IoT cloud connect is for networking, security, and data management and provides updates at every level of the network.
+
+IOT based Smart Energy Meter Monitoring with Theft Detection
+IOT based Intelligent Gas Leakage Detector Using Arduino
+Gas Leakage Detection with Buzzer System using Atmega
+IOT Based Heart Monitoring System Using ECG
+IOT Based Monitoring System for Comatose Patients
+IOT Circuit Breaker Project
+IOT Flood Monitoring & Alerting System
+IOT Flood Monitoring & Alerting System
+IOT Prison Break Monitoring & Alerting System
+Raspberry Pi Air and Noise Pollution Monitoring System Over IOT 
+IOT Energy Meter with Current, Voltage and Cost Monitoring System IOT Industry Protection System Arduino IOT Color Based Product Sorting Machine Project
+IOT Smart Energy Grid IOT Paralysis Patient Health Care Project IOT Car Parking System
+ Smart Dustbin With IOT Notifications IOT Smart Mirror With News & Temperature IOT Garbage Monitoring With Weight Sensing IOT Asset tracking System
+ IOT Based ICU Patient Monitoring System Biometric Attendance System Over IOT 
+IOT Gas Pipe Leakage Detector Insect Robot IOT Irrigation Monitoring & Controller System
+ IOT Electronic Door Opener IOT Home Automation Using Raspberry Pi 
+IOT Alcohol & Health Monitoring System IOT Liquid Level Monitoring System
+IOT Garbage Monitoring System
+IOT Based Fire Department Alerting System
+ IOT Solar Power Monitoring System IOT Streetlight Controller System
+ IOT Traffic Signal Monitoring & Controller System IOT Industry Automation Using Raspberry Pi
+ IOT Underground Cable Fault Detector Project IOT Air & Sound Pollution Monitoring System Energy Meter Monitoring Over
+ IOT IOT Based Person/Wheelchair Fall Detection
+ IOT Patient Health Monitoring Project
+ IOT Heart Attack Detection & Heart Rate Monitor
+ IOT Based Toll Booth Manager System
+ IOT Theft Detection Using Raspberry Pi
+2WD Vehicle Drone Air + Land Surveillance
+Public Property Violation and Anti Littering Drone
+Raspberry Pi based Android Controlled Surveillance Robot
+Farm Protector Drone for using Arduino
+Automatic Liquid Dispenser Vending Machine
+Design and Fabrication of External Pipe Climbing Robot
+Anti-Riot Drone with Tear Gas
+Build An IoT-Based Motion Detector Using Cayenne
+GSM-based Cellular IoT Home Automation
+IoT-Based Smart Agriculture System
+Design Own IoT Mesh Enabled Environment Monitoring Device
+Designing IoT Face Recognition AI Robot
+Wi-Fi & Bluetooth Mesh Enabled IoT Smart Device For Athletes
+IoT-Enabled Air Pollution Meter With Digital Dashboard On Smartphone
+Noise Detector with Automatic Recording System Using Arduino With The IoT
+Wireless Biometric Lock Using Arduino With The IoT(Hindi & English)
+Multi-Language Voice Control IOT Home Automation Using Google Assistant and Raspberry Pi(Hindi & Video)
+Smart Arduino Touch Switch Board For Home Automation With IoT
+Smart Home Security System With Automatic Phone Calling System Using Arduino With The IoT
+IoT-Based PM2.5 and PM10 Air Quality Monitoring System
+ESP8266 based wireless web server
+IoT Based Smart Camera
+Air Pollution Meter
+World’s smallest IoT project
+RC Robot
+Vehicle Simulation
+Industry Automation
+Multi-Language Voice Control IOT Home Automation Using Google Assistant and Raspberry Pi(Hindi & Video)
+Smart Arduino Touch Switch Board For Home Automation With IoT
+IoT-Based PM2.5 and PM10 Air Quality Monitoring System
+
+
+
+
+
+
+
+
+

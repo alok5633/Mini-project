@@ -1,0 +1,46 @@
+DevOps Key Concepts
+Soft Skills
+jenkins
+docker
+kubernetes
+puppet
+chef
+ansible
+Git, 
+Selenium,
+ Docker,
+ Puppet,
+ Nagios, 
+ Ansible,
+ Splunk, 
+Ell Stack,
+VSTS 
+Bamboo
+Ruby
+ Bash
+
+Microsoft Azure
+ Google Cloud
+ Amazon Web Services
+ IBM
+aws
+XSS attacks
+ SQL attacks
+ DNS codes IP addresses
+Configuration Management
+Source Code Management
+Continuous Integration
+Continuous Testing
+Containerization
+Source Control (like Git, Bitbucket, Svn, VSTS etc)
+Continuous Integration (like
+
+Ranger 4
+Xenonstack
+Kovair Solutions
+Shippable
+Squadex
+Sematext
+CloudBees
+CloudMunch
+OpenMake Software

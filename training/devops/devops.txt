@@ -1,0 +1,74 @@
+Linux Fundamentals And Scripting
+Knowledge On Various DevOps Tools And Technologies
+Continuous Integration And Continuous Delivery
+Infrastructure as Code (IAC)
+DevOps Key Concepts
+Soft Skills
+jenkins
+docker
+kubernetes
+puppet
+chef
+ansible
+Git, 
+Selenium,
+ Docker,
+ Puppet,
+ Nagios, 
+ Ansible,
+ Splunk, 
+Ell Stack,
+VSTS 
+Bamboo
+Ruby
+ Bash
+ Python
+ Node
+ Shell
+Microsoft Azure
+ Google Cloud
+ Amazon Web Services
+ IBM
+aws
+XSS attacks
+ SQL attacks
+ DNS codes IP addresses
+Configuration Management
+Source Code Management
+Continuous Integration
+Continuous Testing
+Containerization
+Source Control (like Git, Bitbucket, Svn, VSTS etc)
+Continuous Integration (like Jenkins, Bamboo, VSTS )
+Infrastructure Automation (like Puppet, Chef, Ansible)
+Deployment Automation & Orchestration (like Jenkins, VSTS, Octopus Deploy)
+Container Concepts (LXD, Docker)
+Orchestration (Kubernetes, Mesos, Swarm)
+Cloud (like AWS, Azure, GoogleCloud, Openstack)
+WhiteHat Security.
+Docker Certified Associate
+Kubernetes Certification
+AWS Certified DevOps Engineer Professional Exam
+AZ-400: Microsoft Azure DevOps Solutions Certification Exam
+ Puppet Professional Certification
+
+StackOverdrive.io
+ScienceSoft
+QASource
+Galaxy Weblinks Inc.
+CloudHesive
+Ranger 4
+Xenonstack
+Kovair Solutions
+Shippable
+Squadex
+Sematext
+CloudBees
+CloudMunch
+OpenMake Software
+MSys Technology
+Cubet Techno Labs Pvt Ltd
+Happiest MindsnClouds
+Wercker
+
+
