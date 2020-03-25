@@ -9,6 +9,7 @@ from flask import *
 from flask_mysqldb import MySQL
 
 from resumeparser import *
+from text import *
 app = Flask(__name__)  
 
 app.config['MYSQL_HOST']="localhost"
@@ -19,8 +20,8 @@ app.config['MYSQL_DB']="quiz"
 mysql=MySQL(app)
  
 pos=['JJ','NN','NNP','NNS','NNPS']
-skills={}
-devops=[]
+skills=[0,0,0,0]
+
 @app.route('/',methods=['GET','POST'])  
 def index():  
     
@@ -43,21 +44,53 @@ def index():
         
         
     if request.method == 'GET':
-        return render_template("quiz_upload.html")  
+        return render_template("login.html")  
  
-@app.route('/login', methods = ['POST'])  
+@app.route('/register', methods = ['GET','POST'])  
 def success():  
     if request.method == 'POST':  
-        f = request.files['file']  
-        f.save(f.filename)  
-        print("dsdasd")
+        print("ssadadsda")
+        email=request.form['email']
+        print(email)
+        f = request.files['file']
+        print(f.filename)
+        f.save("uploaded_files/"+f.filename)
+        
+        resume=Resume()
+        resume_text=resume.convert("uploaded_files/"+f.filename)
+        print(len(resume_text))
+        resume_text=resume.stopwords(resume_text)
+        print(len(resume_text))
+        pos_tag=resume.postag(resume_text)
+        print(pos_tag)
+        
+        w=[]
+        for words in pos_tag[0]:
+            if words[1] in pos:
+                w.append(words[0])
+        print(w)  
+        #predicted = classifier.predict(["android","amqp","wemo","mongodb"])
+        times=len(w)//4
+        extra=len(w)%4
+        count=0
+        tracker=0
+        while(count!=times):
+            predicted = classifier.predict([w[tracker],w[tracker+1],w[tracker+2],w[tracker+3]])
+            tracker=tracker+4
+            count+=1
+            for i in range(0,4):
+                skills[predicted[i]]+=1
+        print(skills)        
+        return render_template("login.html")  
+        '''
         resume=Resume()
         resume_string = resume.convert("Alok.pdf")
         resume_string = resume_string.replace(',',' ')
         #Converting all the charachters in lower case
         resume_string = resume_string.lower()
         print(resume.rating('nodejs'))
-        return render_template("success.html", name = f.filename)  
+        return render_template("success.html", name = f.filename) 
+        '''
     
     
 @app.route('/quiz',methods=['POST'])

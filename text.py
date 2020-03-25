@@ -32,7 +32,7 @@ text_clf = Pipeline([('vect', TfidfVectorizer()),
 classifier = joblib.load('model.pkl') 
 
 # Predict the test cases
-predicted = classifier.predict(["tensorflow","amqp","react","mongodb"])
+predicted = classifier.predict(["android","amqp","wemo","mongodb"])
 
 
 
