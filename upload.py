@@ -7,7 +7,7 @@ Created on Sun Jan 19 16:33:39 2020
 
 from flask import *  
 from flask_mysqldb import MySQL
-
+import random
 from resumeparser import *
 from text import *
 app = Flask(__name__)  
@@ -21,6 +21,7 @@ mysql=MySQL(app)
  
 pos=['JJ','NN','NNP','NNS','NNPS']
 skills=[0,0,0,0]
+names=["Devops","IOT","ML","WebApp"]
 
 @app.route('/',methods=['GET','POST'])  
 def index():  
@@ -80,35 +81,51 @@ def success():
             count+=1
             for i in range(0,4):
                 skills[predicted[i]]+=1
-        print(skills)        
-        return render_template("login.html")  
+        l=[]
+        j=0
         '''
-        resume=Resume()
-        resume_string = resume.convert("Alok.pdf")
-        resume_string = resume_string.replace(',',' ')
-        #Converting all the charachters in lower case
-        resume_string = resume_string.lower()
-        print(resume.rating('nodejs'))
-        return render_template("success.html", name = f.filename) 
+        for i in range(0,3):
+            if j<extra:
+                l.append(w[tracker+j])
+                j+=1
+            else:
+                l.append("")
+        predicted = classifier.predict([l])
+        for i in range(0,extra):
+            skills[predicted[i]]+=1
         '''
+        bucket=[]
+        for i in range(0,4):
+            if(skills[i]>=(0.3*len(w))):
+                bucket.append(names[i])
+        
+        print(skills)
+        cur = mysql.connection.cursor()
+        
+        set_no=cur.execute("select max(set_no) from devops")
+        mysql.connection.commit()
+        s=random.randint(1,set_no)
+        print(s)
+        quiz=[]
+        for element in bucket:
+            query="select * from "+element.lower()
+            set_no=cur.execute(query+" where set_no=%s",(s,))
+            mysql.connection.commit()
+            quiz.append(cur.fetchall())
+        print(quiz)
+        print(quiz[0])
+        sending_data=[]
+        for el in quiz[0]:
+            l=[]
+            for x in el:
+                l.append(x)
+            sending_data.append(l)    
+        return render_template("quiz.html",data=json.dumps(sending_data),s=len(bucket))        
     
     
-@app.route('/quiz',methods=['POST'])
+@app.route('/quiz',methods=['GET'])
 def question_upload():
-    '''
-    domain = request.json['domain']
-    ques=request.json['ques']
-    a=request.json['a']
-    b=request.json['b']
-    c=request.json['c']
-    d=request.json['d']
-    ans=request.json['ans']
-    print(domain,ques,a,b,c,d,ans)
-    cur = mysql.connection.cursor()
-    s="Insert into "+domain
-    cur.execute(s+"(set_no,ques,a,b,c,d,ans) values (%s,%s,%s,%s,%s,%s,%s)",(1,ques,a,b,c,d,ans))
-    mysql.connection.commit()
-    '''
+  
     cur = mysql.connection.cursor()
     cur.execute("select skill from web")
     data=cur.fetchall()

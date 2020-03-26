@@ -5,10 +5,6 @@ Created on Tue Mar 24 13:03:23 2020
 @author: Alok
 """
 
-
-
-
-
 import sklearn.datasets as skd
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -35,10 +31,11 @@ classifier = joblib.load('model.pkl')
 predicted = classifier.predict(["android","amqp","wemo","mongodb"])
 
 
-
+'''
 print('Accuracy achieved is ' + str(np.mean(predicted == news_test.target)))
 print(metrics.classification_report(news_test.target, predicted, target_names=news_test.target_names)),
 metrics.confusion_matrix(news_test.target, predicted)
+'''
 
 
  

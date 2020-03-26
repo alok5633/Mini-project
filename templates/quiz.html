@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <script type="text/javascript">
+        var  questions = '{{data | tojson | safe}}';
+    </script>
+</head>
+<body>
+    
+   <div id="quizContainer" class="container">
+       <div class="title">Computer Quiz</div>
+       <div id="question" class="question">Who is the father of computer</div>
+       <label class="option"><input type="radio" name="option" value="1"/>Alok<span id="opt1"></span></label>
+       <label class="option"><input type="radio" name="option" value="2"/>Hitesh<span id="opt2"></span></label>
+       <label class="option"><input type="radio" name="option" value="3"/>Swann<span id="opt3"></span></label>
+       <label class="option"><input type="radio" name="option" value="4"/>None<span id="opt4"></span></label>
+
+       <button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
+
+   </div>
+
+   <div id="result" class="container result" style="display:none;">
+
+   </div>
+
+   <script type="text/javascript">
+      var currentQuestion=0
+      var score=0;
+    
+      function loadNextQuestion(){
+          console.log(typeof(questions));
+          console.log(questions);
+      }
+   </script>
+
+</body>
+</html>
