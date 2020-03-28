@@ -45,7 +45,7 @@ def index():
         
         
     if request.method == 'GET':
-        return render_template("login.html")  
+        return render_template("result.html")  
  
 @app.route('/register', methods = ['GET','POST'])  
 def success():  
@@ -146,7 +146,15 @@ def question_upload():
         if words[1] in pos:
             w.append(words[0])
     print(len(w))  
-    print(web)      
+    print(web)  
+
+
+@app.route('/domain',methods=['POST'])
+def domain():
+    print("sasadasd");
+    data=request.json['domain']
+    print(data)
+    
     
           
 if __name__ == '__main__':  
