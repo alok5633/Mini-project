@@ -9,7 +9,10 @@ from flask import *
 from flask_mysqldb import MySQL
 import random
 from resumeparser import *
+from info import *
 from text import *
+from sklearn.metrics.pairwise import cosine_similarity
+
 app = Flask(__name__)  
 
 app.config['MYSQL_HOST']="localhost"
@@ -18,6 +21,7 @@ app.config['MYSQL_PASSWORD']=""
 app.config['MYSQL_DB']="quiz"
 
 mysql=MySQL(app)
+r=[[43,11,5,20],[30,15,11,25]]
  
 pos=['JJ','NN','NNP','NNS','NNPS']
 skills=[0,0,0,0]
@@ -45,7 +49,7 @@ def index():
         
         
     if request.method == 'GET':
-        return render_template("result.html")  
+        return render_template("login.html")  
  
 @app.route('/register', methods = ['GET','POST'])  
 def success():  
@@ -152,10 +156,47 @@ def question_upload():
 @app.route('/domain',methods=['POST'])
 def domain():
     print("sasadasd");
-    data=request.json['domain']
+    domain=request.json['domain']
+    cur = mysql.connection.cursor()
+    query="select * from "+domain
+    cur.execute(query)
+    resumes=cur.fetchall()
+    ans=[]
+    for i in range(0,2):
+        l=[]
+        for resume in resumes:
+            res=[resume[3],resume[4],resume[5],resume[6]]
+            result =(cosine_similarity([res], [r[i]])) * 4 + resume[7] * 0.6
+            print(type(result))
+            l.append(result[0][0])
+        ans.append(l) 
+    print(ans)
+    
+    second_stage=[0]*5
+    for l in ans:
+        for i in range(0,5):
+            second_stage[i]+=l[i]
+    for i in range(0,5):        
+        second_stage[i] /=2        
+    
+    data=[]
+    i=0
+    for resume in resumes:
+        info=Info(resume[0],resume[1],resume[2],second_stage[i])
+        data.append(info)
+        i+=1
     print(data)
+
+    sorted_data=merge_sort(data)
+    for i in range(0,5):
+        print(sorted_data[i].marks,end=" ")
+        print(sorted_data[i].id_no,end=" ")
+        print(sorted_data[i].name)
+    sorted_data=sorted_data[::-1]
+    return render_template("quiz.html",data=json.dumps(sorted_data),s=len(sorted_data))    
+
+
+
     
-    
-          
 if __name__ == '__main__':  
     app.run()  

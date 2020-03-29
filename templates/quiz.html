@@ -7,18 +7,35 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/style.css">
     <script type="text/javascript">
-        var  questions = '{{data | tojson | safe}}';
+        var  questions = '{{data | tojson }}';
+        questions=questions.replace(/['"]+/g, '');
+        questions=questions.replace(/[\[\]']+/g,'');
+        var array = questions.split(',');
+        var data_2=[]
+        tracker=0
+        for(var i=0;i<10;i++){
+            l=[]
+            for(var j=0;j<7;j++){
+                l.push(array[tracker+j])
+            }
+            tracker=tracker+7
+            data_2.push(l)
+        }
+        
+
     </script>
 </head>
 <body>
+
+    
     
    <div id="quizContainer" class="container">
        <div class="title">Computer Quiz</div>
        <div id="question" class="question">Who is the father of computer</div>
-       <label class="option"><input type="radio" name="option" value="1"/>Alok<span id="opt1"></span></label>
-       <label class="option"><input type="radio" name="option" value="2"/>Hitesh<span id="opt2"></span></label>
-       <label class="option"><input type="radio" name="option" value="3"/>Swann<span id="opt3"></span></label>
-       <label class="option"><input type="radio" name="option" value="4"/>None<span id="opt4"></span></label>
+       <label class="option"><input type="radio" name="option" value=" a"/><span id="opt1"></span></label>
+       <label class="option"><input type="radio" name="option" value=" b"/><span id="opt2"></span></label>
+       <label class="option"><input type="radio" name="option" value=" c"/><span id="opt3"></span></label>
+       <label class="option"><input type="radio" name="option" value=" d"/><span id="opt4"></span></label>
 
        <button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
 
@@ -31,11 +48,67 @@
    <script type="text/javascript">
       var currentQuestion=0
       var score=0;
-    
-      function loadNextQuestion(){
-          console.log(typeof(questions));
-          console.log(questions);
+      var totQuestions=10
+
+      var container=document.getElementById('quizContainer');
+      var questionEl = document.getElementById('question');
+      var opt1=document.getElementById('opt1');
+      var opt2=document.getElementById('opt2');
+      var opt3=document.getElementById('opt3');
+      var opt4=document.getElementById('opt4');
+      console.log(data_2);
+      console.log(data_2[2]);
+      console.log(data_2[2][3]);
+
+      var nextButton=document.getElementById('nextButton');
+      var resultCont=document.getElementById('result');
+
+      function loadQuestion(questionIndex){
+          var q=questionIndex;
+          console.log(q)
+          questionEl.textContent=(questionIndex + 1) + '.' + data_2[q][1];
+          opt1.textContent=data_2[q][2]
+          opt2.textContent=data_2[q][3]
+          opt3.textContent=data_2[q][4]
+          opt4.textContent=data_2[q][5]
       }
+
+      function skip(){
+          
+      }
+
+
+      function loadNextQuestion(){
+          var selectedOption=document.querySelector('input[type=radio]:checked');
+          if(!selectedOption){
+             alert('Please select an option'); 
+             return;
+          }
+          
+          if(currentQuestion == 10){
+              skip()
+          }
+          var answer=selectedOption.value;
+          console.log(answer)
+          console.log(data_2[currentQuestion][6]);
+          if(data_2[currentQuestion][6]==answer){
+               score+=1;
+          }
+          selectedOption.checked=false;
+          currentQuestion++;
+          if(currentQuestion == totQuestions-1){
+              nextButton.textContent='Finish';
+          }
+
+          if(currentQuestion == totQuestions){
+              container.style.display='none';
+              resultCont.style.display='';
+              resultCont.textContent='Your Score: '+score;
+          }
+          loadQuestion(currentQuestion);
+      }
+
+      loadQuestion(currentQuestion);
    </script>
 
 </body>
