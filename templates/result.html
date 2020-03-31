@@ -16,64 +16,7 @@
   padding: 2px 16px;
 }
 
-.rating {
 
-  overflow: hidden;
-
-  vertical-align: bottom;
-
-  display: inline-block;
-
-  width: auto;
-
-  height: 30px;
-
-}
-
- 
-
-.rating > input {
-  opacity: 0;
-
-  margin-right: -100%;
-
-}
-
-.rating > label {
-
-  position: relative;
-
-  display: block;
-
-  float: right;
-
-  background: url('star-off-big.png');
-
-  background-size: 30px 30px;
-
-}
-
-.rating > label:before {
-
-  display: block;
-
-  opacity: 0;
-
-  content: '';
-
-  width: 30px;
-
-  height: 30px;
-
-  background: url('star-on-big.png');
-
-  background-size: 30px 30px;
-
-  transition: opacity 0.2s linear;
-
-}
-
-.rating > label:hover:before,  .rating > label:hover ~ label:before,  .rating:not(:hover) > :checked ~ label:before { opacity: 1; }
 
 .header {
   overflow: hidden;
@@ -128,10 +71,15 @@
   }
 }
 
+.checked {
+    color: orange;
+    
+}
 
 
 
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -155,7 +103,7 @@
     </div>
   </div>  
 
-<h2>{{s}}</h2>
+<h2></h2>
 <div class="col-sm-6" >
 
 
@@ -165,37 +113,34 @@
             <h4><b>John Doe</b></h4> 
             <p>Architect & Engineer</p>    
             </div>
-            <div style="float:left; padding-right: 2px;">
-                <span class="rating">
-                    
-                      <input id="rating5" type="radio" name="rating" value="5">
-                    
-                      <label for="rating5">5</label>
-                    
-                      <input id="rating4" type="radio" name="rating" value="4">
-                    
-                      <label for="rating4">4</label>
-                    
-                      <input id="rating3" type="radio" name="rating" value="3">
-                    
-                      <label for="rating3">3</label>
-                    
-                      <input id="rating2" type="radio" name="rating" value="2" checked>
-                    
-                      <label for="rating2">2</label>
-                    
-                      <input id="rating1" type="radio" name="rating" value="1">
-                    
-                      <label for="rating1">1</label>
-                    
-                    </span>
-                    
-                    
-            </div>
+            <div style="float:left; padding-left:10px;">
+            <span  onmouseover="starmark(this)" onclick="starmark(this)" id="1id1" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="2id1"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="3id1"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="4id1"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="5id1"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+         </div> 
              
         </div>
     </div>
     <br>
+
+    <div class="card" onclick="changeResume('../resume.pdf')">
+      <div class="container"><img src="../static/background.jpg" alt="Pineapple" style="width:150px;height:90px;margin-right:15px; float: left;padding-top: 2px;padding-bottom: 2px;">
+          <div style="float:left; padding-right:5px;">
+          <h4><b>John Doe</b></h4> 
+          <p>Architect & Engineer</p>    
+          </div>
+          <div style="float:left; padding-left:10px;">
+          <span  onmouseover="starmark(this)" onclick="starmark(this)" id="1id2" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="2id2"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="3id2"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="4id2"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="5id2"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+       </div> 
+           
+      </div>
+  </div>
 
 
   </div>
@@ -204,8 +149,34 @@
 </div>
 
 <script>
+
+function starmark(item)
+{
+count=item.id[0];
+console.log(count);
+sessionStorage.starRating = count;
+var subid= item.id.substring(1);
+console.log(subid);
+for(var i=0;i<5;i++)
+{
+if(i<count)
+{
+document.getElementById((i+1)+subid).style.color="orange";
+}
+else
+{
+document.getElementById((i+1)+subid).style.color="black";
+}
+
+
+}
+
+}
+
+
     function changeResume(path){
       document.getElementById("embed").src=path;
+      
     }
 
     function getval(sel)
@@ -219,12 +190,17 @@
               url: '/domain',						
               success: function(data) {
                   console.log('success');
-                  console.log(JSON.stringify(data));
+                  //console.log(JSON.stringify(data));
               }
           });
 
 }
 
+
+
 </script>
+
+
+
 </body>
 </html> 

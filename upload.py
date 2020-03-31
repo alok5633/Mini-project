@@ -18,7 +18,7 @@ app = Flask(__name__)
 app.config['MYSQL_HOST']="localhost"
 app.config['MYSQL_USER']="root"
 app.config['MYSQL_PASSWORD']=""
-app.config['MYSQL_DB']="quiz"
+app.config['MYSQL_DB']="user"
 
 mysql=MySQL(app)
 r=[[43,11,5,20],[30,15,11,25]]
@@ -45,11 +45,11 @@ def index():
         
         cur.close()
         
-        return "success"
+        #return "success"
         
         
     if request.method == 'GET':
-        return render_template("login.html")  
+        return render_template("result.html")  
  
 @app.route('/register', methods = ['GET','POST'])  
 def success():  
@@ -186,14 +186,24 @@ def domain():
         data.append(info)
         i+=1
     print(data)
-
+    ids=[]
+    name=[]
+    score=[]
     sorted_data=merge_sort(data)
+    sorted_data=sorted_data[::-1]
     for i in range(0,5):
         print(sorted_data[i].marks,end=" ")
         print(sorted_data[i].id_no,end=" ")
         print(sorted_data[i].name)
-    sorted_data=sorted_data[::-1]
-    return render_template("quiz.html",data=json.dumps(sorted_data),s=len(sorted_data))    
+        score.append(sorted_data[i].marks)
+        name.append(sorted_data[i].name)
+        ids.append(sorted_data[i].id_no)
+        
+    print(name)
+    print(ids)
+    print(score)
+    
+    #return render_template("result.html",name=json.dumps(name),score=json.dumps(score),ids=json.dumps(ids),s=len(sorted_data))    
 
 
 
