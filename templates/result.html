@@ -84,6 +84,10 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+  var  datas = '{{data | tojson }}';
+  console.log(datas);
+</script>
 </head>
 <body>
 
@@ -104,7 +108,7 @@
   </div>  
 
 <h2></h2>
-<div class="col-sm-6" >
+<div class="col-sm-6" id="result">
 
 
     <div class="card" onclick="changeResume('../resume.pdf')">
@@ -176,7 +180,7 @@ document.getElementById((i+1)+subid).style.color="black";
 
     function changeResume(path){
       document.getElementById("embed").src=path;
-      
+      getText()
     }
 
     function getval(sel)
@@ -190,10 +194,40 @@ document.getElementById((i+1)+subid).style.color="black";
               url: '/domain',						
               success: function(data) {
                   console.log('success');
-                  //console.log(JSON.stringify(data));
+                  console.log(data.var1);
+                  var result=document.getElementById('result');
+                  
+                  result.innerHTML="";
+                  console.log(data.var1[0].length)
+                  for(var i=0;i<data.var1[0].length;i++){
+                    result.innerHTML +=`<div class="card" onclick="changeResume('../resume.pdf')">
+        <div class="container"><img src="../static/background.jpg" alt="Pineapple" style="width:150px;height:90px;margin-right:15px; float: left;padding-top: 2px;padding-bottom: 2px;">
+            <div style="float:left; padding-right:2px;">
+            <h4><b>`+data.var1[0][i]+`</b></h4> 
+            <p>`+data.var1[2][i]+`</p>    
+            </div>
+            <div style="float:left; padding-left:10px;">
+            <span  onmouseover="starmark(this)" onclick="starmark(this)" id="1id`+data.var1[1][i]+`" style="font-size:40px;cursor:pointer;"  class="fa fa-star checked"></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="2id`+data.var1[1][i]+`"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="3id`+data.var1[1][i]+`"  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="4id`+data.var1[1][i]+`"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+<span onmouseover="starmark(this)" onclick="starmark(this)" id="5id`+data.var1[1][i]+`"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
+         </div> 
+             
+        </div>
+    </div>
+    <br>`;
+                  }
+                  
+
               }
           });
 
+}
+
+function getText(){
+  var  data = '{{data | tojson }}';
+  console.log(data)
 }
 
 

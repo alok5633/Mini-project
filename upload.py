@@ -46,10 +46,10 @@ def index():
         cur.close()
         
         #return "success"
-        
+    d=[["Alok","Hitesh"],[1,2],[9.1,9,3]]    
         
     if request.method == 'GET':
-        return render_template("result.html")  
+        return render_template("result.html",data=json.dumps(d))  
  
 @app.route('/register', methods = ['GET','POST'])  
 def success():  
@@ -186,6 +186,7 @@ def domain():
         data.append(info)
         i+=1
     print(data)
+    ds=[]
     ids=[]
     name=[]
     score=[]
@@ -198,12 +199,9 @@ def domain():
         score.append(sorted_data[i].marks)
         name.append(sorted_data[i].name)
         ids.append(sorted_data[i].id_no)
-        
-    print(name)
-    print(ids)
-    print(score)
+    ds=[name,ids,score]
     
-    #return render_template("result.html",name=json.dumps(name),score=json.dumps(score),ids=json.dumps(ids),s=len(sorted_data))    
+    return jsonify({ 'var1': ds })   
 
 
 
