@@ -250,6 +250,22 @@ function submitRatings(resume_id){
   });
 }
 
+function Notification() {
+  // do something
+  rid="r1"
+  $.ajax({
+  type: 'POST',
+  data: JSON.stringify({rid:rid}),
+      contentType: 'application/json',
+              url: '/notification',						
+              success: function(data) {
+                //alert("Ratings submitted");
+                console.log("Got notification")
+              }
+  });
+}
+setInterval(Notification, 9000);
+
 
 
 </script>

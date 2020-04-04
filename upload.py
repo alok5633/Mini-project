@@ -160,8 +160,61 @@ def ratings():
     print(resume_id)
     print(rating)
     print(rid)
+    cur = mysql.connection.cursor()
+    cur.execute("select rid from recruiter_rating where rid=%s",(rid,))
+    data=cur.fetchall()
+    print(len(data))
+    if(len(data)==0):
+        cur.execute("insert into recruiter_rating(rid,resumes,rating) values (%s,%s,%s)",(rid,resume_id,rating))
+        mysql.connection.commit()
+    else:
+        cur.execute("select * from recruiter_rating where rid=%s",(rid,))
+        data=cur.fetchall()
+        resumes=data[0][1]
+        ratings=data[0][2]
+        resumes=resumes+","+resume_id
+        ratings=ratings+","+rating
+        print(resumes)
+        print(ratings)
+        
+        cur.execute("update recruiter_rating set resumes=%s,rating=%s where rid=%s",(resumes,ratings,rid))
+        mysql.connection.commit()
+        
+        
     return jsonify()
 
+@app.route('/notification',methods=['POST'])
+def notification():
+    rid=request.json['rid']
+    cur = mysql.connection.cursor()
+    cur.execute("select * from recruiter_rating where rid=%s",(rid,))
+    data=cur.fetchall()
+    main_rec_resumes=data[0][1]
+    main_rec_ratings=data[0][2]
+    main_rec_resumes=main_rec_resumes.split(",")
+    main_rec_ratings=main_rec_ratings.split(",")
+    print(main_rec_resumes)
+    print(main_rec_ratings)
+    cur = mysql.connection.cursor()
+    cur.execute("select * from recruiter_rating where rid!=%s",(rid,))
+    data=cur.fetchall()
+    users=[]
+    match=[]
+    for i in range(0,len(data)):
+        count=0
+        current_resume=data[i][1]
+        current_resume=current_resume.split(",")
+        for resume in main_rec_resumes:
+            if resume in current_resume:
+                count+=1
+        users.append(data[i][0])
+        match.append(count)
+    print(users)
+    print(match)        
+            
+        
+    
+    return jsonify()
 
 
 @app.route('/domain',methods=['POST'])
