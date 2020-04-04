@@ -142,6 +142,7 @@
 <span onmouseover="starmark(this)" onclick="starmark(this)" id="4id2"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
 <span onmouseover="starmark(this)" onclick="starmark(this)" id="5id2"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
        </div> 
+       <button style="float:left; margin-left:10px; margin-top:5px;">Submit Rating</button>
            
       </div>
   </div>
@@ -153,11 +154,12 @@
 </div>
 
 <script>
-
+var ratings=[]
 function starmark(item)
-{
+{  
 count=item.id[0];
-console.log(count);
+ratings[parseInt(item.id.substring(4))-1]=count
+console.log(ratings);
 sessionStorage.starRating = count;
 var subid= item.id.substring(1);
 console.log(subid);
@@ -196,11 +198,13 @@ document.getElementById((i+1)+subid).style.color="black";
                   console.log('success');
                   console.log(data.var1);
                   var result=document.getElementById('result');
-                  
+                
+                  ratings=[]
                   result.innerHTML="";
                   console.log(data.var1[0].length)
                   for(var i=0;i<data.var1[0].length;i++){
-                    result.innerHTML +=`<div class="card" onclick="changeResume('../resume.pdf')">
+                    ratings.push(1)
+                    result.innerHTML +=`<div class="card" >
         <div class="container"><img src="../static/background.jpg" alt="Pineapple" style="width:150px;height:90px;margin-right:15px; float: left;padding-top: 2px;padding-bottom: 2px;">
             <div style="float:left; padding-right:2px;">
             <h4><b>`+data.var1[0][i]+`</b></h4> 
@@ -213,12 +217,12 @@ document.getElementById((i+1)+subid).style.color="black";
 <span onmouseover="starmark(this)" onclick="starmark(this)" id="4id`+data.var1[1][i]+`"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
 <span onmouseover="starmark(this)" onclick="starmark(this)" id="5id`+data.var1[1][i]+`"  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
          </div> 
-             
+         <button id="`+data.var1[1][i]+`"style="float:left; margin-left:10px; margin-top:5px;" onclick="submitRatings(this.id)">Submit Rating</button>    
         </div>
     </div>
     <br>`;
                   }
-                  
+                 console.log(ratings) 
 
               }
           });
@@ -228,6 +232,22 @@ document.getElementById((i+1)+subid).style.color="black";
 function getText(){
   var  data = '{{data | tojson }}';
   console.log(data)
+}
+
+function submitRatings(resume_id){
+  rid="r1"
+  console.log(resume_id.substring(1));
+  rating=ratings[parseInt(resume_id.substring(1))-1]
+  console.log(rating)
+  $.ajax({
+  type: 'POST',
+  data: JSON.stringify({resume_id:resume_id,rating:rating,rid:rid}),
+      contentType: 'application/json',
+              url: '/ratings',						
+              success: function(data) {
+                alert("Ratings submitted");
+              }
+  });
 }
 
 

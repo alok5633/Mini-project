@@ -21,7 +21,7 @@ app.config['MYSQL_PASSWORD']=""
 app.config['MYSQL_DB']="user"
 
 mysql=MySQL(app)
-r=[[43,11,5,20],[30,15,11,25]]
+devops=[[43,11,5,20],[30,15,11,25]]
  
 pos=['JJ','NN','NNP','NNS','NNPS']
 skills=[0,0,0,0]
@@ -152,21 +152,34 @@ def question_upload():
     print(len(w))  
     print(web)  
 
+@app.route('/ratings',methods=['POST'])
+def ratings():
+    resume_id=request.json['resume_id']
+    rating=request.json['rating']
+    rid=request.json['rid']
+    print(resume_id)
+    print(rating)
+    print(rid)
+    return jsonify()
+
+
 
 @app.route('/domain',methods=['POST'])
 def domain():
     print("sasadasd");
     domain=request.json['domain']
+    
     cur = mysql.connection.cursor()
     query="select * from "+domain
     cur.execute(query)
     resumes=cur.fetchall()
     ans=[]
+    exec("%s = %d" % (domain,2))
     for i in range(0,2):
         l=[]
         for resume in resumes:
             res=[resume[3],resume[4],resume[5],resume[6]]
-            result =(cosine_similarity([res], [r[i]])) * 4 + resume[7] * 0.6
+            result =(cosine_similarity([res], [devops[i]])) * 4 + resume[7] * 0.6
             print(type(result))
             l.append(result[0][0])
         ans.append(l) 
